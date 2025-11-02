@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.core.config import settings
-from backend.routers import routes
-from backend.db.database import create_tables
-from backend.model import tables  # must use backend prefix
+from core.config import settings
+from routers import routes
+from db.database import create_tables
+from model import tables  # must use backend prefix
 
 app = FastAPI(
     version="0.1.0",
