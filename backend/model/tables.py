@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
-from backend.db.database import Base
+from db.database import Base
 
 class Users(Base):
     __tablename__ = "users"
@@ -79,3 +79,4 @@ class ProductOrder(Base):
 
     product = relationship("Products", back_populates="productorder")
     order = relationship("Orders", back_populates="productorder")
+
