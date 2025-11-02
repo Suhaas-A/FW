@@ -24,8 +24,9 @@ class Settings(BaseSettings):
         return v.split(",") if v else []
 
     class Config:
-        env_file = ENV_PATH
+        env_file = '.env'
         env_file_encoding = "utf-8"
         case_sensitive = True
+
 
 settings = Settings()
