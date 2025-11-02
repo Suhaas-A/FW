@@ -23,6 +23,10 @@ app.add_middleware(
 
 app.include_router(routes.router, prefix=settings.API_PREFIX)
 
+@app.get('/')
+def root():
+    rerurn 'hi'
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("backend.main:app", host="0.0.0.0", port=8000, reload=True)
