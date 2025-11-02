@@ -25,7 +25,7 @@ app.include_router(routes.router, prefix=settings.API_PREFIX)
 
 @app.get('/')
 def root():
-    rerurn 'hi'
+    return 'hi'
 
 if __name__ == "__main__":
     import uvicorn
