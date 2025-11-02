@@ -1,10 +1,4 @@
-from typing import List
-from pydantic_settings import BaseSettings
-from pydantic import field_validator
-import os
-from pathlib import Path
-
-class Settings(BaseSettings):
+class Settings:
     DATABASE_URL = 'sqlite:///./database.db'
 
     API_PREFIX: str = "/api"
@@ -17,4 +11,5 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 settings = Settings()
+
 
