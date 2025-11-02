@@ -4,29 +4,17 @@ from pydantic import field_validator
 import os
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent  # backend/
-ENV_PATH = BASE_DIR.parent / ".env"
-
 class Settings(BaseSettings):
-    DATABASE_URL: str
+    DATABASE_URL = 'sqlite:///./database.db'
 
     API_PREFIX: str = "/api"
     DEBUG: bool = True
 
-    ALLOWED_ORIGINS: str
+    ALLOWED_ORIGINS = '*'
 
-    SECRET_KEY: str
-    ALGORITHM: str
-    ACCESS_TOKEN_EXPIRE_MINUTES: int
-
-    @field_validator("ALLOWED_ORIGINS")
-    def parse_allowed_origins(cls, v: str) -> List[str]:
-        return v.split(",") if v else []
-
-    class Config:
-        env_file = '.env'
-        env_file_encoding = "utf-8"
-        case_sensitive = True
-
+    SECRET_KEY = '83daa0256a2289b0fb23693bf1f6034d44396675749244721a2b20e896e11662'
+    ALGORITHM = 'HS256'
+    ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 settings = Settings()
+
