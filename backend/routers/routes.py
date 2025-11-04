@@ -8,12 +8,12 @@ from datetime import datetime, timedelta
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 
-from db.database import get_db, SessionLocal
-from model.tables import Users, Orders, Products, Carts, ProductCart, ProductOrder
-from schemas.data import (
+from backend.db.database import get_db, SessionLocal
+from backend.model.tables import Users, Orders, Products, Carts, ProductCart, ProductOrder
+from backend.schemas.data import (
     Token, TokenData, Register, Order, Product, Test, UpdateProduct, Cart, CartDelete
 )
-from core.config import settings
+from backend.core.config import settings
 
 router = APIRouter(
     prefix=""
@@ -342,4 +342,3 @@ def post_data(data: Test):
     db.commit()
 
     return data
-
